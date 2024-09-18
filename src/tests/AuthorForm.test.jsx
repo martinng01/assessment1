@@ -4,16 +4,16 @@ import "@testing-library/jest-dom";
 import { describe, it, expect, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 
-describe("Author form component", () => {
+describe("AuthorForm component", () => {
   it("renders the text and submit button", () => {
     const authors = [];
     const setAuthors = vi.fn();
     render(<AuthorForm authors={authors} setAuthors={setAuthors} />);
 
-    const inputElement = screen.getByPlaceholderText("Author Name");
+    const inputElement = screen.getByPlaceholderText(/author name/i);
     expect(inputElement).toBeInTheDocument();
 
-    const submitButton = screen.getByText("Submit");
+    const submitButton = screen.getByText(/submit/i);
     expect(submitButton).toBeInTheDocument();
   });
 
@@ -22,7 +22,7 @@ describe("Author form component", () => {
     const setAuthors = vi.fn();
     render(<AuthorForm authors={authors} setAuthors={setAuthors} />);
 
-    const submitButton = screen.getByText("Submit");
+    const submitButton = screen.getByText(/submit/i);
     fireEvent.click(submitButton);
 
     expect(setAuthors).not.toHaveBeenCalled();
@@ -33,8 +33,8 @@ describe("Author form component", () => {
     const setAuthors = vi.fn();
     render(<AuthorForm authors={authors} setAuthors={setAuthors} />);
 
-    const inputElement = screen.getByPlaceholderText("Author Name");
-    const submitButton = screen.getByText("Submit");
+    const inputElement = screen.getByPlaceholderText(/author name/i);
+    const submitButton = screen.getByText(/submit/i);
 
     fireEvent.change(inputElement, { target: { value: "John Doe" } });
     fireEvent.click(submitButton);
@@ -47,8 +47,8 @@ describe("Author form component", () => {
     const setAuthors = vi.fn();
     render(<AuthorForm authors={authors} setAuthors={setAuthors} />);
 
-    const inputElement = screen.getByPlaceholderText("Author Name");
-    const submitButton = screen.getByText("Submit");
+    const inputElement = screen.getByPlaceholderText(/author name/i);
+    const submitButton = screen.getByText(/submit/i);
 
     fireEvent.change(inputElement, { target: { value: "  John Doe  " } });
     fireEvent.click(submitButton);
@@ -61,8 +61,8 @@ describe("Author form component", () => {
     const setAuthors = vi.fn();
     render(<AuthorForm authors={authors} setAuthors={setAuthors} />);
 
-    const inputElement = screen.getByPlaceholderText("Author Name");
-    const submitButton = screen.getByText("Submit");
+    const inputElement = screen.getByPlaceholderText(/author name/i);
+    const submitButton = screen.getByText(/submit/i);
 
     fireEvent.change(inputElement, { target: { value: "John Doe" } });
     fireEvent.click(submitButton);
