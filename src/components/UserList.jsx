@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import User from "./User";
 
+// Check if the user object has the required properties for display
 const isValidUser = (user) => {
   return (
     user &&
@@ -15,6 +16,7 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
 
+  // Fetch users from the API
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => {
