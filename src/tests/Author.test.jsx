@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 
-describe("Author component", () => {
+describe("Unit: Author component", () => {
   it("renders author name", () => {
     const authorName = "John Doe";
     render(<Author authorName={authorName} />);

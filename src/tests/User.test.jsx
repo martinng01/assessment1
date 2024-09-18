@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 
-describe("User component", () => {
+describe("Unit: User component", () => {
   it("renders user details", () => {
     const name = "John Doe";
     const username = "johndoe";

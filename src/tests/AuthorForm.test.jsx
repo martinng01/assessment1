@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 import { describe, it, expect, vi } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 
-describe("AuthorForm component", () => {
+describe("Unit: AuthorForm component", () => {
   it("renders the text and submit button", () => {
     const authors = [];
     const setAuthors = vi.fn();
