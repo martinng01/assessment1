@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from "react";
+import PropTypes from "prop-types";
 
 const User = ({ name, username, email }) => {
   return (
@@ -11,6 +11,12 @@ const User = ({ name, username, email }) => {
       </div>
     </div>
   );
+};
+
+User.propTypes = {
+  name: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
 };
 
 export default User;

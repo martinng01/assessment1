@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const AuthorForm = ({ authors, setAuthors }) => {
   const [inputValue, setInputValue] = useState("");
@@ -36,6 +36,11 @@ const AuthorForm = ({ authors, setAuthors }) => {
       </button>
     </div>
   );
+};
+
+AuthorForm.propTypes = {
+  authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setAuthors: PropTypes.func.isRequired,
 };
 
 export default AuthorForm;
