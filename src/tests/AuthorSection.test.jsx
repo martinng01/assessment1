@@ -1,25 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import AuthorForm from "../../components/AuthorForm";
-import Author from "../../components/Author";
+import AuthorSection from "../components/AuthorSection";
 
-const TestComponent = () => {
-  const [authors, setAuthors] = useState([]);
-  return (
-    <div>
-      <AuthorForm authors={authors} setAuthors={setAuthors} />
-      {authors.map((author, index) => (
-        <Author key={index} authorName={author} />
-      ))}
-    </div>
-  );
-};
-
-describe("AuthorForm and Author", () => {
+describe("Integration: AuthorSection", () => {
   it("should add a new author and render it", () => {
-    render(<TestComponent />);
+    render(<AuthorSection />);
 
     const inputElement = screen.getByPlaceholderText(/author name/i);
     const submitButton = screen.getByText(/submit/i);
@@ -33,7 +20,7 @@ describe("AuthorForm and Author", () => {
   });
 
   it("should handle multiple authors", () => {
-    render(<TestComponent />);
+    render(<AuthorSection />);
 
     const inputElement = screen.getByPlaceholderText(/author name/i);
     const submitButton = screen.getByText(/submit/i);
@@ -53,7 +40,7 @@ describe("AuthorForm and Author", () => {
   });
 
   it("should not render an author if the input is empty", () => {
-    render(<TestComponent />);
+    render(<AuthorSection />);
 
     const inputElement = screen.getByPlaceholderText(/author name/i);
     const submitButton = screen.getByText(/submit/i);
